@@ -1,4 +1,4 @@
-package com.abanapps.abanportfolio.components.contact.components
+package com.abanapps.abanportfolio.sections.contact.components
 
 import abanportfolio.composeapp.generated.resources.Res
 import abanportfolio.composeapp.generated.resources.github

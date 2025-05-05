@@ -1,4 +1,4 @@
-package com.abanapps.abanportfolio.components.header
+package com.abanapps.abanportfolio.sections.header
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text

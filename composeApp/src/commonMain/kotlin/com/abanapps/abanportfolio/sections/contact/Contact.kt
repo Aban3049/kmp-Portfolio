@@ -1,4 +1,4 @@
-package com.abanapps.abanportfolio.components.projects
+package com.abanapps.abanportfolio.sections.contact
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,15 +14,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.abanapps.abanportfolio.components.projects.components.ProjectCard
 import network.chaintech.sdpcomposemultiplatform.sdp
 import network.chaintech.sdpcomposemultiplatform.ssp
 
 @Composable
-fun Projects(){
+fun Contact(){
 
     Box(
-        modifier = Modifier.fillMaxWidth().background(Color.Black),
+        modifier = Modifier.fillMaxWidth().background(Color(0xFF303033)),
         contentAlignment = Alignment.Center
     ) {
 
@@ -31,27 +30,23 @@ fun Projects(){
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(12.sdp)
         ) {
-            Spacer(modifier = Modifier.height(10.sdp))
-            Text("Projects", color = Color.White, fontSize = 15.ssp)
+            Spacer(modifier = Modifier.height(8.sdp))
+            Text("Contact", color = Color(0xFF6F6F71), fontSize = 8.ssp)
             Row(
                 horizontalArrangement = Arrangement.spacedBy(15.sdp),
                 verticalAlignment = Alignment.CenterVertically
-            ){
-                ProjectCard()
-                ProjectCard()
-                ProjectCard()
+            ) {
+                com.abanapps.abanportfolio.sections.contact.components.IconButton()
+                com.abanapps.abanportfolio.sections.contact.components.IconButton()
+                com.abanapps.abanportfolio.sections.contact.components.IconButton()
+                com.abanapps.abanportfolio.sections.contact.components.IconButton()
             }
-
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(15.sdp),
-                verticalAlignment = Alignment.CenterVertically
-            ){
-                ProjectCard()
-                ProjectCard()
-                ProjectCard()
-            }
-            Spacer(modifier = Modifier.height(16.sdp))
+            Text("2024 © AbanApps. All rights reserved.", color = Color(0xFF6F6F71), fontSize = 6.ssp)
+            Text("Made with ❤️ by Aban",color = Color(0xFF6F6F71), fontSize = 6.ssp)
+            Spacer(modifier = Modifier.height(3.sdp))
         }
     }
 
+
 }
+
