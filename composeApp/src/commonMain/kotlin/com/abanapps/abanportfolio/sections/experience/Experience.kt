@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.abanapps.abanportfolio.sections.experience.components.CompanySection
 import com.abanapps.abanportfolio.utils.WindowSizeClass
+import com.abanapps.abanportfolio.utils.openUrl
 import network.chaintech.sdpcomposemultiplatform.sdp
 import network.chaintech.sdpcomposemultiplatform.ssp
 
@@ -48,10 +49,16 @@ fun Experience() {
                     companyName = "Mobologics",
                     role = "Junior Android Developer",
                     timePeriod = "Dec 2024 - Present",
-                    breakPoint = breakpoint
+                    breakPoint = breakpoint,
+                    onClick = {
+                        openUrl("https://www.mobologics.com/")
+                    }
                 )
                 CompanySection(
-                    breakPoint = breakpoint
+                    breakPoint = breakpoint,
+                    onClick = {
+                        openUrl("https://microwebsol.com/")
+                    }
                 )
 
             }

@@ -1,5 +1,11 @@
 package com.abanapps.abanportfolio.sections.projects
 
+import abanportfolio.composeapp.generated.resources.Res
+import abanportfolio.composeapp.generated.resources.ai_chat_keyboard_icon
+import abanportfolio.composeapp.generated.resources.audio_amplifier_icon
+import abanportfolio.composeapp.generated.resources.bt_remote_app_icon
+import abanportfolio.composeapp.generated.resources.ppt_file_viewer_icon
+import abanportfolio.composeapp.generated.resources.vin_icon
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,7 +29,7 @@ import network.chaintech.sdpcomposemultiplatform.sdp
 import network.chaintech.sdpcomposemultiplatform.ssp
 
 @Composable
-fun Projects(){
+fun Projects() {
 
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
 
@@ -40,7 +46,8 @@ fun Projects(){
         {
 
             Column(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = if (breakpoint== WindowSizeClass.Expanded) 25.sdp else if (breakpoint == WindowSizeClass.Medium) 15.sdp else 10.sdp),
+                modifier = Modifier.fillMaxWidth()
+                    .padding(horizontal = if (breakpoint == WindowSizeClass.Expanded) 25.sdp else if (breakpoint == WindowSizeClass.Medium) 15.sdp else 10.sdp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(12.sdp)
             ) {
@@ -48,7 +55,7 @@ fun Projects(){
                 Text("Projects", color = Color.White, fontSize = 15.ssp)
 
 
-                when(breakpoint){
+                when (breakpoint) {
 
                     WindowSizeClass.Compact -> {
 
@@ -57,7 +64,12 @@ fun Projects(){
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            ProjectCard(modifier = Modifier.weight(1f),fontSizeFeatures = 8.ssp, breakPoint = breakpoint)
+                            ProjectCard(
+                                modifier = Modifier.weight(1f),
+                                fontSizeFeatures = 8.ssp,
+                                breakPoint = breakpoint,
+                                onPlayStore = true
+                            )
                         }
 
                         Row(
@@ -65,7 +77,21 @@ fun Projects(){
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            ProjectCard(modifier = Modifier.weight(1f),fontSizeFeatures = 8.ssp, breakPoint = breakpoint)
+                            ProjectCard(
+                                modifier = Modifier.weight(1f),
+                                fontSizeFeatures = 8.ssp,
+                                breakPoint = breakpoint,
+                                appName = "AI Chat Keyboard",
+                                projectDate = "Dec 2024 - Dec 2024",
+                                appImage = Res.drawable.ai_chat_keyboard_icon,
+                                projectKeyFeatures = listOf(
+                                    "Multi-functional AI Chat Keyboard",
+                                    "Customizable keyboard themes",
+                                    "Intelligent text correction using Gemini",
+                                    "AI-based word suggestions for typing",
+                                    "Portrait & landscape mode compatibility"
+                                )
+                            )
                         }
 
                         Row(
@@ -73,18 +99,49 @@ fun Projects(){
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            ProjectCard(modifier = Modifier.weight(1f),fontSizeFeatures = 8.ssp, breakPoint = breakpoint)
+                            ProjectCard(
+                                modifier = Modifier.weight(1f),
+                                fontSizeFeatures = 8.ssp,
+                                breakPoint = breakpoint,
+                                appName = "BT Tv Remote",
+                                projectDate = "Feb 2025 - Mar 2024",
+                                appImage = Res.drawable.bt_remote_app_icon,
+                                projectKeyFeatures = listOf(
+                                    "Bluetooth remote control for TVs",
+                                    "Gamepad mode for gaming",
+                                    "Google Cast for media streaming",
+                                    "Channel & volume control",
+                                    "Multi-language support"
+                                )
+                            )
                         }
 
                     }
+
                     WindowSizeClass.Medium -> {
 
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            ProjectCard(modifier = Modifier.weight(1f))
-                            ProjectCard(modifier = Modifier.weight(1f))
+                            ProjectCard(
+                                breakPoint = breakpoint,
+                                modifier = Modifier.weight(1f),
+                                onPlayStore = true
+                            )
+                            ProjectCard(
+                                breakPoint = breakpoint, modifier = Modifier.weight(1f),
+                                appName = "AI Chat Keyboard",
+                                projectDate = "Dec 2024 - Dec 2024",
+                                appImage = Res.drawable.ai_chat_keyboard_icon,
+                                projectKeyFeatures = listOf(
+                                    "Multi-functional AI Chat Keyboard",
+                                    "Customizable keyboard themes",
+                                    "Intelligent text correction using Gemini",
+                                    "AI-based word suggestions for typing",
+                                    "Portrait & landscape mode compatibility"
+                                )
+                            )
 
                         }
 
@@ -92,8 +149,35 @@ fun Projects(){
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            ProjectCard(modifier = Modifier.weight(1f))
-                            ProjectCard(modifier = Modifier.weight(1f))
+                            ProjectCard(
+                                breakPoint = breakpoint, modifier = Modifier.weight(1f),
+                                appName = "BT Tv Remote",
+                                projectDate = "Feb 2025 - Mar 2024",
+                                appImage = Res.drawable.bt_remote_app_icon,
+                                projectKeyFeatures = listOf(
+                                    "Bluetooth remote control for TVs",
+                                    "Gamepad mode for gaming",
+                                    "Google Cast for media streaming",
+                                    "Channel & volume control",
+                                    "Multi-language support"
+                                )
+                            )
+                            ProjectCard(
+                                breakPoint = breakpoint, modifier = Modifier.weight(1f),
+                                appName = "Audio Amplifier",
+                                appImage = Res.drawable.audio_amplifier_icon,
+                                projectDate = "Jul 2024 - Jul 2024",
+                                projectKeyFeatures = listOf(
+                                    "Audio amplification & volume boosting",
+                                    "Advanced equalizer for custom tuning",
+                                    "Speaker cleaner for improved audio",
+                                    "Seamless local audio & video playback",
+                                    "Intuitive interface for effortless control"
+                                ),
+                                onPlayStore = true,
+                                appDownloads = "",
+                                appStoreLink = "https://play.google.com/store/apps/details?id=com.strco.musicplayer.audioamplifier.volumebooster.speakercleaner"
+                            )
 
                         }
 
@@ -101,8 +185,31 @@ fun Projects(){
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            ProjectCard(modifier = Modifier.weight(1f))
-                            ProjectCard(modifier = Modifier.weight(1f))
+                            ProjectCard(
+                                breakPoint = breakpoint, modifier = Modifier.weight(1f),
+                                appName = "PPT File Viewer",
+                                projectDate = "Sep 2024 - Sep 2024",
+                                appImage = Res.drawable.ppt_file_viewer_icon,
+                                projectKeyFeatures = listOf(
+                                    "Multi-format document viewer",
+                                    "Supports PPT, DOC, XLS, PDF & CSV",
+                                    "Secure storage access",
+                                    "Elegant & user-friendly interface",
+                                    "Fast & efficient document rendering"
+                                )
+                            )
+                            ProjectCard(
+                                breakPoint = breakpoint, modifier = Modifier.weight(1f),
+                                appImage = Res.drawable.vin_icon, appName = "VIN Decoder",
+                                projectDate = "Oct 2024 - Oct 2024",
+                                projectKeyFeatures = listOf(
+                                    "Instant VIN lookup for vehicle details",
+                                    "Real-time data on make, model & more",
+                                    "Multi-language support for global users",
+                                    "Ideal for buyers, sellers & enthusiasts",
+                                    "Secure & reliable vehicle data retrieval"
+                                )
+                            )
 
                         }
 
@@ -113,18 +220,87 @@ fun Projects(){
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            ProjectCard(modifier = Modifier.weight(1f))
-                            ProjectCard(modifier = Modifier.weight(1f))
-                            ProjectCard(modifier = Modifier.weight(1f))
+                            ProjectCard(
+                                breakPoint = breakpoint,
+                                modifier = Modifier.weight(1f),
+                                onPlayStore = true
+                            )
+                            ProjectCard(
+                                breakPoint = breakpoint,
+                                modifier = Modifier.weight(1f),
+                                appName = "AI Chat Keyboard",
+                                projectDate = "Dec 2024 - Dec 2024",
+                                appImage = Res.drawable.ai_chat_keyboard_icon,
+                                projectKeyFeatures = listOf(
+                                    "Multi-functional AI Chat Keyboard",
+                                    "Customizable keyboard themes",
+                                    "Intelligent text correction using Gemini",
+                                    "AI-based word suggestions for typing",
+                                    "Portrait & landscape mode compatibility"
+                                )
+                            )
+                            ProjectCard(
+                                breakPoint = breakpoint,
+                                modifier = Modifier.weight(1f),
+                                appName = "BT Tv Remote",
+                                projectDate = "Feb 2025 - Mar 2024",
+                                appImage = Res.drawable.bt_remote_app_icon,
+                                projectKeyFeatures = listOf(
+                                    "Bluetooth remote control for TVs",
+                                    "Gamepad mode for gaming",
+                                    "Google Cast for media streaming",
+                                    "Channel & volume control",
+                                    "Multi-language support"
+                                )
+                            )
                         }
 
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            ProjectCard(modifier = Modifier.weight(1f))
-                            ProjectCard(modifier = Modifier.weight(1f))
-                            ProjectCard(modifier = Modifier.weight(1f))
+                            ProjectCard(
+                                breakPoint = breakpoint,
+                                modifier = Modifier.weight(1f),
+                                appName = "Audio Amplifier",
+                                appImage = Res.drawable.audio_amplifier_icon,
+                                projectDate = "Jul 2024 - Jul 2024",
+                                projectKeyFeatures = listOf(
+                                    "Audio amplification & volume boosting",
+                                    "Advanced equalizer for custom tuning",
+                                    "Speaker cleaner for improved audio",
+                                    "Seamless local audio & video playback",
+                                    "Intuitive interface for effortless control"
+                                ),
+                                onPlayStore = true,
+                                appDownloads = "",
+                                appStoreLink = "https://play.google.com/store/apps/details?id=com.strco.musicplayer.audioamplifier.volumebooster.speakercleaner"
+                            )
+                            ProjectCard(
+                                breakPoint = breakpoint, modifier = Modifier.weight(1f),
+                                appName = "PPT File Viewer",
+                                projectDate = "Sep 2024 - Sep 2024",
+                                appImage = Res.drawable.ppt_file_viewer_icon,
+                                projectKeyFeatures = listOf(
+                                    "Multi-format document viewer",
+                                    "Supports PPT, DOC, XLS, PDF & CSV",
+                                    "Secure storage access",
+                                    "Elegant & user-friendly interface",
+                                    "Fast & efficient document rendering"
+                                )
+                            )
+                            ProjectCard(
+                                breakPoint = breakpoint, modifier = Modifier.weight(1f),
+                                appImage = Res.drawable.vin_icon, appName = "VIN Decoder",
+                                projectDate = "Oct 2024 - Oct 2024",
+                                projectKeyFeatures = listOf(
+                                    "Instant VIN lookup for vehicle details",
+                                    "Real-time data on make, model & more",
+                                    "Multi-language support for global users",
+                                    "Ideal for buyers, sellers & enthusiasts",
+                                    "Secure & reliable vehicle data retrieval"
+                                )
+                            )
                         }
                     }
                 }

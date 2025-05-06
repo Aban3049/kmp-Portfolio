@@ -5,7 +5,9 @@ import abanportfolio.composeapp.generated.resources.android
 import abanportfolio.composeapp.generated.resources.compose
 import abanportfolio.composeapp.generated.resources.firebase
 import abanportfolio.composeapp.generated.resources.java
+import abanportfolio.composeapp.generated.resources.ktor
 import abanportfolio.composeapp.generated.resources.python
+import abanportfolio.composeapp.generated.resources.sqlite
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -54,15 +56,16 @@ fun About(modifier: Modifier = Modifier) {
                 Spacer(modifier = Modifier.height(10.sdp))
                 Text("About Me", color = Color.White, fontSize = 15.ssp)
                 Text(
-                    "This is dummy text for about me so keep up with it This is dummy text for about me so keep up with it This is dummy text for about me so keep up with it This is dummy text for about me so keep up with it This is dummy text for about me so keep up with it This is dummy text for about me so keep up with it",
+                    "I'm a passionate Android Developer with over a year of experience building clean, user-friendly mobile apps. I enjoy turning ideas into real, working products and have worked on everything from multimedia tools to smart TV remotes. I’m currently exploring Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), Swift, and diving deeper into core Android concepts to level up my skills.",
                     color = Color.White,
                     textAlign = TextAlign.Center,
-                    fontSize = 9.ssp
+                    fontSize = 9.ssp,
+                    modifier = Modifier.padding(4.dp),
                 )
 
                 Text("Favourites", color = Color.White, fontSize = 12.ssp)
 
-                when(breakpoint){
+                when (breakpoint) {
                     WindowSizeClass.Expanded -> {
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
@@ -81,29 +84,50 @@ fun About(modifier: Modifier = Modifier) {
                         ) {
                             FavouriteCard(image = Res.drawable.python, text = "Python")
                             FavouriteCard(image = Res.drawable.firebase, text = "Firebase")
-                            FavouriteCard()
-                            FavouriteCard()
+                            FavouriteCard(image = Res.drawable.ktor, text = "Ktor")
+                            FavouriteCard(image = Res.drawable.sqlite, text = "SQLite")
                         }
 
 
                     }
+
                     else -> {
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             FavouriteCard(breakPoint = breakpoint)
-                            FavouriteCard(image = Res.drawable.compose, text = "Compose", breakPoint = breakpoint)
-                            FavouriteCard(image = Res.drawable.java, text = "Java", breakPoint = breakpoint)
+                            FavouriteCard(
+                                image = Res.drawable.compose,
+                                text = "Compose",
+                                breakPoint = breakpoint
+                            )
+                            FavouriteCard(
+                                image = Res.drawable.java,
+                                text = "Java",
+                                breakPoint = breakpoint
+                            )
                         }
 
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            FavouriteCard(image = Res.drawable.android, text = "Android", breakPoint = breakpoint)
-                            FavouriteCard(image = Res.drawable.python, text = "Python", breakPoint = breakpoint)
-                            FavouriteCard(image = Res.drawable.firebase, text = "Firebase", breakPoint = breakpoint)
+                            FavouriteCard(
+                                image = Res.drawable.android,
+                                text = "Android",
+                                breakPoint = breakpoint
+                            )
+                            FavouriteCard(
+                                image = Res.drawable.python,
+                                text = "Python",
+                                breakPoint = breakpoint
+                            )
+                            FavouriteCard(
+                                image = Res.drawable.firebase,
+                                text = "Firebase",
+                                breakPoint = breakpoint
+                            )
                         }
 
 
@@ -111,8 +135,8 @@ fun About(modifier: Modifier = Modifier) {
                             horizontalArrangement = Arrangement.spacedBy(15.sdp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            FavouriteCard(breakPoint = breakpoint)
-                            FavouriteCard(breakPoint = breakpoint)
+                            FavouriteCard(image = Res.drawable.ktor, text = "Ktor",breakPoint = breakpoint)
+                            FavouriteCard(image = Res.drawable.sqlite, text = "SQLite",breakPoint = breakpoint)
                         }
                     }
 

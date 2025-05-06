@@ -15,6 +15,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.abanapps.abanportfolio.utils.WindowSizeClass
@@ -29,7 +31,8 @@ fun CompanySection(
     companyName: String = "MicroWeb Solutions Pvt. Ltd",
     role: String = "Android Developer Internship",
     timePeriod: String = "Jun 2024 - Nov 2024",
-    breakPoint: WindowSizeClass
+    breakPoint: WindowSizeClass,
+    onClick: () -> Unit = {}
 ) {
 
     Row(
@@ -38,7 +41,11 @@ fun CompanySection(
     ) {
 
         ElevatedCard(
-            onClick = {},
+            onClick = {
+                onClick()
+
+            },
+           modifier =  Modifier.pointerHoverIcon(PointerIcon.Hand)
         ) {
             Image(
                 painter = painterResource(image),
