@@ -1,18 +1,35 @@
-This is a Kotlin Multiplatform project targeting Web, Desktop.
+🌐 My Portfolio Website (KMP WASM/JS)
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+This is my personal portfolio website built using Kotlin Multiplatform with WASM/JS. It shows my work, skills, and projects.
+🖼 Preview
+
+![Screenshot 2025-05-06 at 7 02 04 PM](https://github.com/user-attachments/assets/09cf262f-f0e4-4140-9cfd-76008b18ca4c)
 
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html),
-[Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform/#compose-multiplatform),
-[Kotlin/Wasm](https://kotl.in/wasm/)…
+🚀 Run Instructions (WASM/JS)
 
-We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
-If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
+Make sure you have Java and Gradle installed.
+▶️ To Run the Website:
 
-You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+./gradlew wasmJsBrowserRun
+
+🛠 To Build for Deployment:
+
+./gradlew wasmJsBrowserDistribution
+
+The built website will be in:
+
+build/dist/wasmJs/browser
+
+You can host it with GitHub Pages or any static server.
+📁 Project Structure
+
+    src/commonMain: Shared Kotlin code
+
+    src/wasmJsMain: Frontend code for browser
+
+    build.gradle.kts: Project settings
+
+📬 Contact
+
+If you want to talk or ask anything, feel free to reach out!
