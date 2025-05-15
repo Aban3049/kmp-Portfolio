@@ -62,8 +62,8 @@ fun ProjectCard(
     fontSizeFeatures: TextUnit = 6.ssp,
     breakPoint: WindowSizeClass? = null,
     onPlayStore: Boolean = false,
-    appStoreLink: String = "https://play.google.com/store/apps/details?id=com.videotomp3audioconverter.convertmp4videotomp3audio&hl=en",
-    appDownloads: String = "100k+"
+    appStoreLink: String? = null,
+    appDownloads: String? = null,
 ) {
 
     var isHovered by remember {
@@ -80,26 +80,30 @@ fun ProjectCard(
     ) {
 
         Column(
-            modifier = Modifier.padding(8.sdp),
+            modifier = Modifier.padding(if (breakPoint == WindowSizeClass.Compact) 12.sdp else 8.sdp),
             verticalArrangement = Arrangement.spacedBy(5.sdp)
         ) {
 
             Row(
-                horizontalArrangement = Arrangement.spacedBy(5.sdp),
+                horizontalArrangement = Arrangement.spacedBy(if (breakPoint == WindowSizeClass.Compact) 8.sdp else 5.sdp),
                 modifier = Modifier.fillMaxWidth()
             ) {
 
                 Image(
                     painter = painterResource(appImage),
                     contentDescription = appName,
-                    modifier = Modifier.scale(scale).size(if (breakPoint != null && breakPoint == WindowSizeClass.Compact) 50.sdp else 40.sdp).pointerInput(PointerEventType.Enter) { isHovered = true }.pointerInput(
-                        PointerEventType.Exit) { isHovered = false }.pointerHoverIcon(
-                        PointerIcon.Hand).then(
-                            if (onPlayStore){
+                    modifier = Modifier.scale(scale)
+                        .size(if (breakPoint != null && breakPoint == WindowSizeClass.Compact) 50.sdp else 40.sdp)
+                        .pointerInput(PointerEventType.Enter) { isHovered = true }.pointerInput(
+                            PointerEventType.Exit
+                        ) { isHovered = false }.pointerHoverIcon(
+                            PointerIcon.Hand
+                        ).then(
+                            if (onPlayStore) {
                                 Modifier.clickable {
-                                    openUrl(appStoreLink)
+                                    openUrl(appStoreLink!!)
                                 }
-                            }else{
+                            } else {
                                 Modifier
                             }
                         )
@@ -118,7 +122,7 @@ fun ProjectCard(
                             Text(
                                 appName,
                                 color = Color.White,
-                                fontSize = 9.ssp,
+                                fontSize =  10.ssp,
                                 modifier = Modifier
                             )
                             Image(
@@ -141,11 +145,15 @@ fun ProjectCard(
                                 contentDescription = "ic_play_store",
                                 modifier = Modifier.size(10.sdp)
                             )
-                            Text(
-                                appDownloads,
-                                color = Color.Gray,
-                                fontSize = 7.ssp,
-                                modifier = Modifier)
+                            if (appDownloads!=null){
+                                Text(
+                                    appDownloads,
+                                    color = Color.Gray,
+                                    fontSize = 7.ssp,
+                                    modifier = Modifier
+                                )
+                            }
+
                         }
 
                     }

@@ -36,7 +36,6 @@ kotlin {
 
     sourceSets {
         val desktopMain by getting
-
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -47,11 +46,15 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation("network.chaintech:sdp-ssp-compose-multiplatform:1.0.6")
+            implementation(libs.material.icons.core)
+            implementation(libs.material.icons.extended)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
         }
+
+
     }
 }
 

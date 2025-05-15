@@ -107,7 +107,9 @@ fun Profile() {
                     ) {
 
                         ElevatedButton(
-                            onClick = {},
+                            onClick = {
+                                openUrl("https://github.com/Aban3049")
+                            },
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6848E5)),
                             modifier = Modifier.scale(scale)
                                 .pointerHoverIcon(PointerIcon.Hand)
@@ -123,7 +125,9 @@ fun Profile() {
                         }
 
                         OutlinedButton(
-                            onClick = {},
+                            onClick = {
+                                openUrl("https://www.linkedin.com/in/aban-android-developer/")
+                            },
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = if (!isHoveredLinkedinButton) Color.Transparent else Color(
                                     0xFFF5F5F5
